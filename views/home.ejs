@@ -1,0 +1,23 @@
+<%- include("partials/header.ejs") -%>
+
+<h1>Home</h1>
+<p> <%= startcontent %> </p>
+
+<!-- <% for(let i=0;i<arrayposts.length;i++){ %>
+    <h1> <%= arrayposts[i].title %> </h1>
+    <p> <%= arrayposts[i].content %> </p>
+<% } %> -->
+
+<% arrayposts.forEach(function(post){ %>
+    <h1> <%= post.title %> </h1>
+    <p>
+        <%= post.content.substring(0, 100) + "..." %>
+        <a href="http://localhost:3000/posts/<%= post._id %>">Read More</a>
+    </p>
+<% }) %>
+
+
+<a href="http://localhost:3000/compose"><button class="btn btn-primary" type="button">Compose</button></a>
+
+<%- include("partials/footer.ejs") -%>
+
